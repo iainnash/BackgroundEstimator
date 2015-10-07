@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		AEB897231BC4CAAD0024AD17 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB897221BC4CAAD0024AD17 /* main.cpp */; };
+		AEB8972C1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB8972B1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib */; };
+		AEB897301BC4D3790024AD17 /* libopencv_core.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB8972F1BC4D3790024AD17 /* libopencv_core.2.4.12.dylib */; };
+		AEB897321BC4D4470024AD17 /* libopencv_video.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB897311BC4D4470024AD17 /* libopencv_video.2.4.12.dylib */; };
+		AEB897341BC4D46B0024AD17 /* libopencv_highgui.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB897331BC4D46B0024AD17 /* libopencv_highgui.2.4.12.dylib */; };
+		AEB897361BC4D4C70024AD17 /* libopencv_imgproc.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB897351BC4D4C70024AD17 /* libopencv_imgproc.2.4.12.dylib */; };
+		AED85BF21BC5049600F873D5 /* bgthreads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AED85BF01BC5049600F873D5 /* bgthreads.cpp */; settings = {ASSET_TAGS = (); }; };
+		AED85BF41BC5077200F873D5 /* libboost_thread-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED85BF31BC5077200F873D5 /* libboost_thread-mt.dylib */; };
+		AED85BF61BC5079A00F873D5 /* libboost_system-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AED85BF51BC5079A00F873D5 /* libboost_system-mt.dylib */; };
+		AED85BF91BC50A1200F873D5 /* fi2mat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AED85BF71BC50A1200F873D5 /* fi2mat.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +34,17 @@
 /* Begin PBXFileReference section */
 		AEB8971F1BC4CAAD0024AD17 /* BackgroundEstimator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BackgroundEstimator; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB897221BC4CAAD0024AD17 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AEB8972B1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreeimage.3.17.0.dylib; path = ../../../../../../../usr/local/Cellar/freeimage/3.17.0/lib/libfreeimage.3.17.0.dylib; sourceTree = "<group>"; };
+		AEB8972F1BC4D3790024AD17 /* libopencv_core.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.12.dylib; path = ../../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_core.2.4.12.dylib; sourceTree = "<group>"; };
+		AEB897311BC4D4470024AD17 /* libopencv_video.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.2.4.12.dylib; path = ../../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_video.2.4.12.dylib; sourceTree = "<group>"; };
+		AEB897331BC4D46B0024AD17 /* libopencv_highgui.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.4.12.dylib; path = ../../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_highgui.2.4.12.dylib; sourceTree = "<group>"; };
+		AEB897351BC4D4C70024AD17 /* libopencv_imgproc.2.4.12.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.2.4.12.dylib; path = ../../../../../../../usr/local/Cellar/opencv/2.4.12/lib/libopencv_imgproc.2.4.12.dylib; sourceTree = "<group>"; };
+		AED85BF01BC5049600F873D5 /* bgthreads.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bgthreads.cpp; sourceTree = "<group>"; };
+		AED85BF11BC5049600F873D5 /* bgthreads.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bgthreads.hpp; sourceTree = "<group>"; };
+		AED85BF31BC5077200F873D5 /* libboost_thread-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_thread-mt.dylib"; path = "../../../../../../../usr/local/Cellar/boost/1.57.0/lib/libboost_thread-mt.dylib"; sourceTree = "<group>"; };
+		AED85BF51BC5079A00F873D5 /* libboost_system-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-mt.dylib"; path = "../../../../../../../usr/local/Cellar/boost/1.57.0/lib/libboost_system-mt.dylib"; sourceTree = "<group>"; };
+		AED85BF71BC50A1200F873D5 /* fi2mat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fi2mat.cpp; sourceTree = "<group>"; };
+		AED85BF81BC50A1200F873D5 /* fi2mat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fi2mat.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +52,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED85BF61BC5079A00F873D5 /* libboost_system-mt.dylib in Frameworks */,
+				AED85BF41BC5077200F873D5 /* libboost_thread-mt.dylib in Frameworks */,
+				AEB897361BC4D4C70024AD17 /* libopencv_imgproc.2.4.12.dylib in Frameworks */,
+				AEB897341BC4D46B0024AD17 /* libopencv_highgui.2.4.12.dylib in Frameworks */,
+				AEB897321BC4D4470024AD17 /* libopencv_video.2.4.12.dylib in Frameworks */,
+				AEB897301BC4D3790024AD17 /* libopencv_core.2.4.12.dylib in Frameworks */,
+				AEB8972C1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +68,13 @@
 		AEB897161BC4CAAD0024AD17 = {
 			isa = PBXGroup;
 			children = (
+				AED85BF51BC5079A00F873D5 /* libboost_system-mt.dylib */,
+				AED85BF31BC5077200F873D5 /* libboost_thread-mt.dylib */,
+				AEB897351BC4D4C70024AD17 /* libopencv_imgproc.2.4.12.dylib */,
+				AEB897331BC4D46B0024AD17 /* libopencv_highgui.2.4.12.dylib */,
+				AEB897311BC4D4470024AD17 /* libopencv_video.2.4.12.dylib */,
+				AEB8972F1BC4D3790024AD17 /* libopencv_core.2.4.12.dylib */,
+				AEB8972B1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib */,
 				AEB897211BC4CAAD0024AD17 /* BackgroundEstimator */,
 				AEB897201BC4CAAD0024AD17 /* Products */,
 			);
@@ -58,6 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				AEB897221BC4CAAD0024AD17 /* main.cpp */,
+				AED85BF01BC5049600F873D5 /* bgthreads.cpp */,
+				AED85BF11BC5049600F873D5 /* bgthreads.hpp */,
+				AED85BF71BC50A1200F873D5 /* fi2mat.cpp */,
+				AED85BF81BC50A1200F873D5 /* fi2mat.hpp */,
 			);
 			path = BackgroundEstimator;
 			sourceTree = "<group>";
@@ -118,7 +156,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED85BF21BC5049600F873D5 /* bgthreads.cpp in Sources */,
 				AEB897231BC4CAAD0024AD17 /* main.cpp in Sources */,
+				AED85BF91BC50A1200F873D5 /* fi2mat.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +245,14 @@
 		AEB897271BC4CAAD0024AD17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/freeimage/3.17.0/lib,
+					/usr/local/lib,
+					/usr/local/Cellar/opencv/2.4.12/lib,
+					/usr/local/Cellar/boost/1.57.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -212,6 +260,14 @@
 		AEB897281BC4CAAD0024AD17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/freeimage/3.17.0/lib,
+					/usr/local/lib,
+					/usr/local/Cellar/opencv/2.4.12/lib,
+					/usr/local/Cellar/boost/1.57.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -235,6 +291,7 @@
 				AEB897281BC4CAAD0024AD17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -61,6 +61,16 @@
             ReferencedContainer = "container:BackgroundEstimator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "/Users/iain/Downloads/tumblr_n4a5jvuCzc1s02vreo1_400.gif"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "/Users/iain/Pictures/campus.jpg"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
