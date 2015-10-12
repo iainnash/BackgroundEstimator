@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE6B34881BC5E77A001D0CB0 /* BackgroundModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE6B34861BC5E77A001D0CB0 /* BackgroundModel.cpp */; settings = {ASSET_TAGS = (); }; };
 		AEB897231BC4CAAD0024AD17 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEB897221BC4CAAD0024AD17 /* main.cpp */; };
 		AEB8972C1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB8972B1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib */; };
 		AEB897301BC4D3790024AD17 /* libopencv_core.2.4.12.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB8972F1BC4D3790024AD17 /* libopencv_core.2.4.12.dylib */; };
@@ -32,6 +33,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AE2C531D1BCB869A001D5B9F /* PixelVal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixelVal.h; sourceTree = "<group>"; };
+		AE2C531E1BCBBB76001D5B9F /* Timer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
+		AE6B34861BC5E77A001D0CB0 /* BackgroundModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundModel.cpp; sourceTree = "<group>"; };
+		AE6B34871BC5E77A001D0CB0 /* BackgroundModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BackgroundModel.hpp; sourceTree = "<group>"; };
 		AEB8971F1BC4CAAD0024AD17 /* BackgroundEstimator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BackgroundEstimator; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB897221BC4CAAD0024AD17 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AEB8972B1BC4CB5B0024AD17 /* libfreeimage.3.17.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreeimage.3.17.0.dylib; path = ../../../../../../../usr/local/Cellar/freeimage/3.17.0/lib/libfreeimage.3.17.0.dylib; sourceTree = "<group>"; };
@@ -96,6 +101,10 @@
 				AED85BF11BC5049600F873D5 /* bgthreads.hpp */,
 				AED85BF71BC50A1200F873D5 /* fi2mat.cpp */,
 				AED85BF81BC50A1200F873D5 /* fi2mat.hpp */,
+				AE6B34861BC5E77A001D0CB0 /* BackgroundModel.cpp */,
+				AE6B34871BC5E77A001D0CB0 /* BackgroundModel.hpp */,
+				AE2C531D1BCB869A001D5B9F /* PixelVal.h */,
+				AE2C531E1BCBBB76001D5B9F /* Timer.hpp */,
 			);
 			path = BackgroundEstimator;
 			sourceTree = "<group>";
@@ -157,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AED85BF21BC5049600F873D5 /* bgthreads.cpp in Sources */,
+				AE6B34881BC5E77A001D0CB0 /* BackgroundModel.cpp in Sources */,
 				AEB897231BC4CAAD0024AD17 /* main.cpp in Sources */,
 				AED85BF91BC50A1200F873D5 /* fi2mat.cpp in Sources */,
 			);
