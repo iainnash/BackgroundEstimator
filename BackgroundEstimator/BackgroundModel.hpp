@@ -33,9 +33,6 @@ public:
     }
   }
   void updateTrainingVal(int x, int y, Vec3b pixel) {
-    // increment frame count (0 -> 1), cannot be 0.
-    frameCount++;
-    
     PixelVal fVal = pixels[y][x].cur;
     // update lastVal
     pixels[y][x].last = pixels[y][x].cur;
@@ -77,6 +74,9 @@ public:
 
   }
   void train(Vec3b **image) {
+    // increment frame count (0 -> 1), cannot be 0.
+    frameCount++;
+    
     for (int yi = 0; yi < height; yi++) {
       for (int xi = 0; xi < width; xi++) {
         updateTrainingVal(xi, yi, image[yi][xi]);

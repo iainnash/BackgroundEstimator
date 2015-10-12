@@ -21,9 +21,9 @@ int main(int argc, const char * argv[]) {
   const char* test = argv[1];
   const char* newbgf = argv[2];
   
-  run_without_threads(test, newbgf);
+  //run_without_threads(test, newbgf);
   
-  //run_with_threads(test, newbgf, 4);
+  run_with_threads(test, newbgf, 6);
   
   return 0;
 }

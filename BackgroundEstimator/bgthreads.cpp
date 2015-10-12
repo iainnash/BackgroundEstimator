@@ -9,6 +9,7 @@
 #include "bgthreads.hpp"
 #include <iostream>
 #include "fi2mat.hpp"
+#include <memory>
 #include "FreeImage.h"
 #include <boost/thread.hpp>
 #include <stdio.h>
@@ -35,41 +36,49 @@ public:
   void operator()() {
     Timer tmr;
     for (int i = 0; i < nframes; i++) {
-      Vec3b **imgRaw = new Vec3b*[rect.height];
+        bg->train(imgFrames[i]);
+      // cleanup memory
       for (int yi = 0; yi < rect.height; yi++) {
-        imgRaw[yi] = new Vec3b[rect.width];
-        for (int xi = 0; xi < rect.width; xi++) {
-          colourtuple colors = imgs[i][yi][xi];
-          imgRaw[i][xi] = Vec3b(colors.r, colors.g, colors.b);
-        }
-        bg->train(imgRaw);
-        // cleanup memory
-        for (int yi = 0; yi < rect.height; yi++) {
-          delete [] imgRaw[yi];
-        }
-        delete [] imgRaw;
+        delete [] imgFrames[i][yi];
       }
-      
+      delete [] imgFrames[i];
     }
+    delete [] imgFrames;
+    
     double t = tmr.elapsed();
-    cout << "Grid @ (" << rect.x << "," << rect.y << ") ran in " << t << endl;
+    cout << t << '\t';
   }
   
   Rect rect;
   BackgroundModel *bg;
   Mat fg;
-  pixels_type imgs;
+  Vec3b ***imgFrames;
   int nframes;
   
   FrameImageWorker(CvRect rect, int count, pixels_type imgs, int nframes)
-      : rect(rect), nframes(nframes), imgs(imgs) {
+      : rect(rect), nframes(nframes) {
     bg = new BackgroundModel(rect.width, rect.height);
+    imgFrames = new Vec3b**[nframes];
+    for (int i = 0; i < nframes; i++) {
+      imgFrames[i] = new Vec3b*[rect.height];
+      for (int yi = 0; yi < rect.height; yi++) {
+        imgFrames[i][yi] = new Vec3b[rect.width];
+        for (int xi = 0; xi < rect.width; xi++) {
+          colourtuple colors = (imgs)[i][yi][xi];
+          imgFrames[i][yi][xi] = Vec3b(colors.r, colors.g, colors.b);
+        }
+      }
+    }
   }
   
 };
 
 void run_with_threads(const char *giffile, const char *bgfile, const int numThreads)
 {
+  
+  Timer timer;
+  Timer totalTime;
+  double readtime, copytime, processtime;
   
   FIMULTIBITMAP* image = FreeImage_OpenMultiBitmap(FreeImage_GetFileType(giffile, 0), giffile, false, true, true, GIF_PLAYBACK);
 
@@ -89,10 +98,16 @@ void run_with_threads(const char *giffile, const char *bgfile, const int numThre
     cout << "Read file " << i << endl;
   }
   
+  readtime = timer.elapsed();
+  timer.reset();
+  
+  cout << "Calculating grids -- time output seperated by \n" << endl;
+  
   int perRows = frames[0].rows / numThreads;
   int perCols = frames[0].cols / numThreads;
   
   std::vector<FrameImageWorker*> workers;
+  std::vector<pixels_type> images;
   boost::thread_group slide_threads;
   
   for (int yi = 0; yi <= frames[0].rows - perRows; yi += perRows) {
@@ -106,6 +121,7 @@ void run_with_threads(const char *giffile, const char *bgfile, const int numThre
 
       boost::array<pixels_type::index, 3> shape = {{ static_cast<long>(frames.size()), height, width }};
       pixels_type img(shape);
+      images.push_back(img);
       
       for (int i = 0; i < frames.size(); i++) {
         for (int yii = yi; yii < ym; yii++) {
@@ -115,21 +131,26 @@ void run_with_threads(const char *giffile, const char *bgfile, const int numThre
             colorTuple.r = newFrame[0];
             colorTuple.g = newFrame[1];
             colorTuple.b = newFrame[2];
-            img[i][yii][xii] = colorTuple;
+            img[i][yii - yi][xii - xi] = colorTuple;
           }
         }
       }
-      FrameImageWorker *worker = new FrameImageWorker(rect, slides, img, std::move(slides));
+      FrameImageWorker *worker = new FrameImageWorker(rect, slides, std::move(img), slides);
       workers.push_back(worker);
       slide_threads.add_thread(new boost::thread(boost::ref(*worker)));
     }
   }
 
-  clock_t st, et;
-  st = clock();
-  slide_threads.join_all();
-  et = clock();
-  std::cout << "Took " << et - st << "ms";
   
+  copytime = timer.elapsed();
+  timer.reset();
+  slide_threads.join_all();
+  processtime = timer.elapsed();
+  
+  cout << endl;
+  cout << "threads \t read time \t copy time \t process time \t total" << endl;
+  cout << slide_threads.size() << '\t' << readtime << '\t' << copytime << '\t';
+  cout << processtime << '\t' << totalTime.elapsed() << endl;
+  cout << "Took " << totalTime.elapsed() << "s" << " to process with " << slide_threads.size() << " threads." << endl;
 
 }
